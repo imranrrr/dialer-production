@@ -1,0 +1,33 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<h1 class="text-center text-primary" style="margin-bottom: 20px">Cdrs</h1>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Destination</th>
+      <th scope="col">Start</th>
+      <th scope="col">End</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Userfield</th>
+      <th scope="col" colspan="1">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cdrs.each do |cdr| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td><%= cdr.id %></td>
+        <td><%= cdr.dst %></td>
+        <td><%= cdr.start %></td>
+        <td><%= cdr.end %></td>
+        <td><%= cdr.duration %></td>
+        <td><%= cdr.userfield %></td>
+        <td><button class="btn btn-primary"><%= link_to 'Show', cdr, style: "color: white", class: "user_link"  %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%== pagy_nav(@pagy) %>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t('labels.record_description') %>:</strong>
+  <%= @record.description %>
+</p>
+
+<p>
+  <strong><%= t('labels.record_recorded') %>:</strong>
+  <%= @record.recorded %>
+</p>
+
+
+<%= link_to 'Edit', edit_record_path(@record), class: "btn btn-info", style: "color: white" %> |
+<%= link_to 'Back', records_path, class: "btn btn-primary", style: "color: white" %>

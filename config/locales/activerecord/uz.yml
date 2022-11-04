@@ -1,0 +1,85 @@
+uz:
+ activerecord:
+    errors:
+      messages:
+        blank: "Bo'sh bo'lmasligi kerak"
+        record_invalid: "Yozuv yaroqsiz"
+      models:
+        user:
+          attributes:
+            phone:
+              not_a_number: "Faqat raqamlar"
+        link:
+          attributes:
+            rule_id:
+            taken: "Allaqachon olingan"
+    models:
+      user: 
+        one: Foydalanuvchi
+        other: Foydalanuvchilar
+      group:
+        one: Guruh
+        other: Guruhlar
+      dialstogroup:
+        one: Guruhga qo'ng'iroq qiling
+        other: Guruhlarga terish
+      rolestorule:
+        one: Rol qoidasi
+        other: Rollar qoidalari
+      dial:
+        one: Tering
+        other: Terish        
+      dialstouser:
+        one: Foydalanuvchiga qo'ng'iroq qilish
+        other: Foydalanuvchilarga qo'ng'iroqlar
+      rule:
+        one: Oida
+        other: Qoidalar
+      role:
+        one: Rol
+        other: Rollar   
+    attributes:
+      user:
+        fio: "Ism va familiya"
+        phone: "Asosiy uyali telefon raqam"
+        phone1: "Ikkilamchi uyali telefon raqam"
+        phone2: "Uy telefon raqami"
+        rank: "Harbiy Unvoni"
+        role: "Foydalanuvchi roli"
+        group: "Foydalanuvchi gruhi"
+        pincode: "Pin kodi"
+        active: "Faol"
+        pin: "Pin holati"
+      link:
+        rule_id: "Qoida identifikatori"
+        role_id: "Rol identifikatori"
+      group:
+        group: "Guruh nomi"
+        group_description: "Guruh tavsifi"
+      dialgroup:
+        group: Id
+        dial: Terish
+        group_name: Guruh nomi
+        dial_description: Terish tavsifi
+        dial: Dial
+        dial_url: URLni tering
+        dialed: Terilganmi?
+      rolerule:
+        role: Rol
+        rule: Qoida
+      dial:
+        id: ID
+        sound_url: Ovozli URL
+        description: Tavsif
+        dialed: Terilgan
+        recorded: Yozib olingan
+        created_at: Yaratilgan
+        updated_at: Yangilangan
+      dialuser:
+        user: Foydalanuvchi
+        dial: Terish
+        dialed: Terilgan
+    record:
+      dial:
+        description: Tavsif
+        recorded: Yozib olingan

@@ -1,0 +1,35 @@
+<%= form_with(model: rolestorule) do |form| %>
+  <% if rolestorule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rolestorule.errors.count, "error") %> prohibited this rolestorule from being saved:</h2>
+
+      <ul>
+        <% rolestorule.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :role_id %>
+    <% if action_name == 'edit' %>
+      <%= form.select :role, @roles, :selected => rolestorule.role.role_description %>
+    <% else %>
+      <%= form.select :role, @roles, :selected => @roles.first %>
+    <% end %>    
+  </div>
+
+  <div class="field">
+    <%= form.label :rule_id %>
+    <% if action_name == 'edit' %>  
+      <%= form.select :rule, @rules, :selected => rolestorule.rule.rule_description %>
+    <% else %>
+      <%= form.select :rule, @rules, :selected => @rules.first   %>
+    <% end %>  
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

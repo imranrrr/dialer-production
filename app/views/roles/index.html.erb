@@ -1,0 +1,44 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<h1 class="text-center text-primary" style="margin-bottom: 20px"><%= @model_name %></h1>
+
+<%= link_to t('labels.new_role'), new_role_path, class: "user_link btn btn-success", style: "color: white; margin-bottom: 10px" %>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th scope="col"><%= t 'labels.role' %></th>
+      <th scope="col"><%= t 'labels.role_description' %></th>
+      <th scope="col"><%= t 'labels.rules' %></th>
+      <th scope="col" colspan="3"><%= t 'labels.action' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @roles.each do |role| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td><%= role.role %></td>
+        <td><%= role.role_description %></td>
+        <td>
+        <% names = [] %>
+        <% role.rules.each {|rule| names << rule.rule_description} %>
+        <% names.each do |name| %>
+          <p><%=name  %></p>
+        <!--  <br> -->
+        <% end %>
+        </td>
+        <td><button class="btn btn-primary"><%= link_to t('labels.show'), role, style: 'color: white', class: "user_link" %></button></td>
+        <td><button class="btn"><%= link_to t('labels.edit'), edit_role_path(role), class: "user_link" %></button></td>
+        <% unless role.rolestorules.any? && role.users.any? && role.rules.any? %>
+        <td><button class="btn btn-danger"><%= link_to t('labels.destroy'), role,style: 'color: white', class: "user_link",  method: :delete, data: { confirm: t('are_you_sure') }  %></button></td>
+        <% else %>
+          <td></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!-- <%= link_to t('labels.new_role'), new_role_path, class: "user_link btn btn-success", style: "color: white; margin-bottom: 20px" %> -->

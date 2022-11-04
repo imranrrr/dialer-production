@@ -1,0 +1,117 @@
+uz:
+  true: "Ha"
+  false: "Yo'q"
+  are_you_sure: Ishonchingiz komilmi?
+  helpers:
+    submit:
+      create: Yaratish %{model}
+      update: Foydalanuvchini yangilash
+  halt:
+    errors:
+      messages:
+        unauthorized: Taqiqlangan
+        not_acceptable: Qabul qilinmaydi
+      descriptions:
+        unauthorized: Kirish yo‘q
+        not_acceptable: Qabul qilinadigan parametr
+  messages:
+    hello: Salom Dunyo
+    resend_code: Kodni qayta yuborish
+    record_created: Yozuv muvaffaqiyatli yaratildi
+    user_updated: Foydalanuvchi muvaffaqiyatli yangilandi.
+    user_created: Foydalanuvchi muvaffaqiyatli yaratildi.
+    user_deleted: Foydalanuvchi muvaffaqiyatli o'chirildi.
+    group_updated: Guruh muvaffaqiyatli yangilandi.
+    group_created: Guruh muvaffaqiyatli yaratildi.
+    group_deleted: Guruh muvaffaqiyatli o'chirildi.
+    group_not_deleted: Guruh o‘chirilmadi, foydalanuvchilar soni > 0
+    no_admin_access: Ushbu bo'limga kirish uchun administrator sifatida tizimga kirgan bo'lishingiz kerak
+    you_signed_out: Siz tizimdan chiqdingiz
+    you_signed_in: Siz tizimga kirdingiz
+    invalid_code: Bu kod noto'g'ri
+    phone_not_found: Ushbu telefondan hisob qaydnomasini topa olmadik. Agar muammo davom etsa, qo‘llab-quvvatlash xizmatiga murojaat qiling.
+    no_users_for_show: Namoyish uchun foydalanuvchilar yo'q
+    no_groups_for_show: Ko'rsatish uchun guruhlar yo'q
+    dont_select_group_and_user: Terishga faqat bitta sahifadagi guruhlar va foydalanuvchilar qo'shilishi mumkin. Bir vaqtning o'zida guruh va guruh ichidagi foydalanuvchilarni tanlamang
+    dial_created: Qo'ng'iroq yaratildi
+    dial_updated: terish yangilandi
+    dial_deleted: terish o'chirildi
+    dial_run: Terish ishga tushirildi
+    dials_to_group_updated: Terish muvaffaqiyatli yangilandi.
+    dial_wait_for_record_call: Ovoz yozish uchun qo`ng`iroqni kuting
+  global:
+    errors:
+      phone_format: Telefon formati noto'g'ri, 998XXXXXXXXX bo'lishi kerak
+      shold_be_filled: To'ldirilishi kerak
+      phone_taken: Telefon allaqachon olingan
+      phone_presence: Telefon to'ldirilishi kerak
+      role_list: Rol ro'yxatga kiritilmagan
+      group_list: Guruh ro'yxatga kiritilmagan
+      rank_list: Guruh ro'yxatga kiritilmagan
+      pin_length: PIN-kod 6 ta raqamdan iborat bo'lishi kerak
+      digit_only: PIN kodda hech qanday belgilarga ruxsat berilmaydi
+      group_taken: Guruh nomi allaqachon olingan
+      role_taken: Rol nomi allaqachon olingan
+      dial_sound_url_presence: Ovozli URL to'ldirilishi kerak
+      dial_description_presence: Telefon tavsifi to'ldirilishi kerak      
+  labels:
+    show: Ko'rsatish
+    edit: Tahrirlash
+    destroy: O'chirish
+    logout: Tizimdan Chiqish
+    home: Uy
+    new: Yangi foydalanuvchi
+    back: Orqaga
+    users: Foydalanuvchilar
+    login: Tizimga kirish
+    true: Rost
+    false: Yolg'on
+    groups: Guruhlar
+    action: Harakat
+    record: Ovozni yozib olish
+    dial: Terish
+    group_and_user: Guruh | Foydalanuvchi
+    dials: Terish
+    roles: Rollar
+    rules: Qoidalar
+    cdrs : Qo'ng'iroq hisoboti
+    logs: Foydalanuvchi
+    report: Hisobotlar
+    basic_report: Asosiy hisobot
+    unpined_report: Pinsiz hisobot
+    common_report_type: "Sanasini tanlang:"
+    common_report_date: Umumiy hisobot sanasi
+    show_report: Umumiy hisobotni ko`rsatish
+    no_users: Terish uchun foydalanuvchilar yo'q
+    additional: Qo`shimcha
+    first: Malumotlarni nomlari
+    last: Malumotlar
+    language: Til
+    new_role: Yangi rol
+    role: Rol
+    role_description: Rol tavsifi
+    rules: Qoidalar
+    new_group: Yangi guruh
+    rule: Qoida
+    rule_description: Qoida tavsifi
+    obzvon: Terish
+    new_call: Yangi terish
+    full_group_list: Gruhlarning to`liq ro`yhati
+    unknown: Noma`lum
+    log: Tasdiqlangan
+    play_and_get_digits: Ko`targan lekin tasdiqlanmagan
+    search: Guruhni qidirmoq
+    search_small: Qidirmoq
+    show_update: Yangilamoq
+    report_date_to: gacha
+    search_users: Foydalanuchini qidirmoq
+    new_voice: Yangi habar
+    voice_messages: Ovozliy habarlar
+    record_description: Tavsif
+    record_recorded: Yozilgan
+    editing_record: Yozuvni Tahrirlash
+  pagy:
+    nav:
+      prev: Orqaga
+      next: Oldinga
+      gap: ...

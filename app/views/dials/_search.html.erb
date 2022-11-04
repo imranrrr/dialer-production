@@ -1,0 +1,15 @@
+<%= form_with url: {action: :search}  do |form| %>
+
+<div class="field">
+  <%= hidden_field_tag 'dial_id', dial.id  %>
+</div>
+
+<div class="field">
+   <%= form.label :search, t('labels.search') %>
+   <%= form.text_field :search, minlength: 3, required: true, class: "form-control", style: "width: 10%" %>
+</div>
+
+  <div class="actions">
+    <%= form.submit t('labels.search_small'), class: "btn btn-primary"  %>
+  </div>
+<% end %>

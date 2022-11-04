@@ -1,0 +1,83 @@
+en:
+  activerecord:
+    errors:
+      messages:
+        blank: Should be not empty
+        record_invalid: Record invalid
+      models:
+        user:
+          attributes:
+            phone:
+              not_a_number: Not a number
+        link:
+          attributes:
+            rule_id:
+            taken: Has already been taken
+    models:
+      user: 
+        one: User
+        other: Users
+      group:
+        one: Group
+        other: Groups
+      dialstogroup:
+        one: Dial to Group
+        other: Dials to Groups
+      rolestorule:
+        one: Rule to Role
+        other: Rules to Roles
+      dial:
+        one: Dial
+        other: Dials
+      dialstouser: 
+        one: Dial to User
+        other: Dials to Users
+      rule:
+        one: Rule
+        other: Rules
+      role:
+        one: Role
+        other: Roles    
+    attributes:
+      user:
+        fio: First and Last name
+        phone: Default cell phone
+        phone1: Second cell phone
+        phone2: Home phone
+        rank: Military rank
+        role: User role
+        group: User group
+        pincode: Pin code
+        active: Active
+        pin: Pin position
+      link:
+        rule_id: Rule ID
+        role_id: Role ID
+      group:
+        group: Group name
+        group_description: Group description
+      dialgroup:
+        group: Id
+        dial: Dial
+        group_name: Group Name
+        dial_description: Dial Description
+        dial_url: Dial URL
+        dialed: Dialed?
+      rolerule:
+        role: Role
+        rule: Rule
+      dial:
+        id: ID
+        sound_url: Sound URL
+        description: Description
+        dialed: Dialed
+        recorded: Recorded
+        created_at: Created at
+        updated_at: Updated at
+      dialuser:
+        user: User
+        dial: Dial
+    record: 
+      dial:
+        description: Description
+        recorded: Recorded

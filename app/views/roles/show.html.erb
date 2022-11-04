@@ -1,0 +1,13 @@
+<!--<p id="notice"><%= notice %></p>-->
+  
+  <strong>Role:</strong>
+  <%= @role.role %>
+<br>
+  <strong>Role description:</strong>
+  <%= @role.role_description %>
+  <%= render 'form_roles', rules: @rules, role: @role %>
+
+<div style="margin: 15px 15px">
+<button class="btn"><%= link_to t('labels.edit'), edit_role_path(@role), class: "user_link" %></button> |
+<button class="btn btn-info"><%= link_to  t('labels.back'), roles_path, class: "user_link", style: "color: white" %></button>
+</div>

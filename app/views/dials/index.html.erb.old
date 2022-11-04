@@ -1,0 +1,89 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+
+<h1 class="text-center text-primary"><%= @model_name %></h1>
+<h2><%= t '.dials'%> </h2>
+
+<%= render 'report' %>
+<%= link_to t('labels.new_call'), new_dial_path, class: "user_link btn btn-success", style: "color: white; margin-left: 10px; margin-bottom: 10px" %>
+<%#- I18n.with_locale('ru') do %>
+  <%#= render :partial => 'report'  %>
+<%#- end %>
+
+<!--<%=button_to t('labels.report'), { action: "common_report"}, class: "my_class_1", id: "my_id_1", data: { } %>-->
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <% prefix = "activerecord.attributes.dial." %>
+      <th scope="col"><%= t(prefix + "id") %></th>
+      <th scope="co"><%= t(prefix + "created_at") %></th>
+      <th scope="col"><%= t(prefix + "updated_at") %></th>
+      <!--<th><%= t(prefix + "sound_url") %></th>-->
+      <th scope="col"><%= t(prefix + "recorded") %></th>
+      <th scope="col"><%= t(prefix + "description") %></th>
+      <th scope="col"><%= t("activerecord.attributes.user.fio") %></th>
+      <th scope="col"><%= t(prefix + "dialed") %></th>
+      <th scope="col"><%= t('labels.group_and_user') %></th>
+      <th scope="col" colspan="5"><%= t 'labels.action' %></th>
+      <th scope="col"><%= t 'labels.report' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dials.each do |dial| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td><%= dial.id %></td>
+        <td><%= format_time dial.created_at %></td>
+        <td><%= format_time dial.updated_at %></td>
+        <!--<td><%= dial.sound_url %></td>-->
+        <td><%= t(dial.recorded) %></td>
+        <td><%= dial.description %></td>
+        <td><%= dial.user.fio %></td>
+        <% any_dialed =  dial.dialed? || dial.dialstousers.pluck(:dialed).any? || dial.dialstogroups.pluck(:dialed).any? %>
+        <td><font color=<%= dial.dialed ? 'green' : 'red' %>><%= t(dial.dialed.to_s) %></font></td>
+
+        <td>
+        <!-- <div style="height: 100px; overflow-y: scroll"> -->
+          <% dial_users = false %>
+          <% dial.users.each do |u| %>
+            <% dial_users = true %>
+                <font color='brown'><%= u.group.group %></font> |
+                <%= u.fio %><br>
+          <% end %>
+         
+          
+          <% dial.groups.each do |g|%>
+            <% g.users.each do |u| %>
+              <% dial_users = true %>
+                <font color='brown'><%= u.group.group %></font> |
+                <%= u.fio %><br>
+            <% end %>
+          <% end %>
+           <font color='blue'><%= t('labels.no_users') if !dial_users %></font>
+         </div>
+        </td>
+        <td>
+        <% if dial.record %>
+          <font color='yellow'><%=dial.record.description %></font>
+        <% else %>
+          <font color='red'><%= t 'labels.no_record_assigned' %></font>
+        <% end %>
+        </td>
+        <td><%=button_to t('labels.record'), { action: "record_sound", id: dial.id }, class: "my_class btn btn-primary user_link", id: "my_id" if !any_dialed  %></td>
+        <td><button class="btn btn-primary"><%= link_to t('labels.show'), dial, style: 'color: white', class: "user_link" %></button></td>
+        <td><button class="btn"><%= link_to t('labels.edit'), edit_dial_path(dial), class: "user_link" if !any_dialed %></button></td>
+        <td><button class="btn btn-danger"><%= link_to t('labels.delete'), dial, method: :delete, style: 'color: white', class: "user_link", data: { confirm: t('are_you_sure') } if !any_dialed %></button></td>
+                <% record_exist = dial.record.recorded if dial.record %>
+        <td><%=button_to t('labels.dial'), { action: "make_calls", id: dial.id }, class: "my_class", id: "my_id", data: { confirm: t('are_you_sure') } if !any_dialed && ( dial.recorded || record_exist ) && dial_users %></td>
+        <td><button class="btn user_link" style="margin-bottom: 10px" ><%= link_to t('labels.basic_report'),  basic_report_dial_path(dial), class: "user_link " if dial.dialed %></button><br/>
+         <button class="btn user_link"><%= link_to t('labels.unpined_report'),  unpined_report_dial_path(dial), class: "user_link" if dial.dialed %></button>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!-- <%= link_to t('labels.new_call'), new_dial_path, class: "user_link btn btn-success", style: "color: white; font-size: 18px" %> -->
+<%== pagy_nav(@pagy) %>
+<br>

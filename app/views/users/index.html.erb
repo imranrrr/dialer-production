@@ -1,0 +1,55 @@
+<!--<p id="notice"><%= notice %></p>-->
+<div class="users">
+<%= render 'debug', users: @users %>
+
+<h1 class="text-center text-primary"><%= @model_name %></h1>
+<h2 class="text-center text-danger" style="margin-bottom: 20px"><%= t '.title' %></h2>
+
+<%= render 'search' %>
+<%= link_to t('labels.new'), new_user_path, class: "user_link btn btn-success", style: "color: white; margin-left: 50px" %>
+
+<!-- <div class="form">
+  <input type="text" class="form-control"/>
+</div><br> -->
+
+<table class="table table-bordered table-hover table-primary">
+  <thead>
+    <tr class="table-primary">
+      <% prefix = "activerecord.attributes.user." %>
+      <th scope="col" class="table-primary text-center"><%= t(prefix + "fio") %></th>
+      <th scope="col" class="text-center"><%= t(prefix + "rank") %></th>
+      <th scope="col" class="text-center"><%= t(prefix + "role") %></th>
+      <th scope="col" class="text-center"><%= t(prefix + "group") %></th>
+      <th scope="col" class="text-center"><%= t(prefix + "phone") %></th>
+      <th scope="col" class="text-center"><%= t(prefix + "phone1") %></th>
+      <th scope="col"><%= t(prefix + "phone2") %></th>
+      <th scope="col"><%= t(prefix + "pincode") %></th>
+      <th scope="col"><%= t(prefix + "active") %></th>
+      <th scope="col" colspan="3" class="text-center"><%= t '.action' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @users.each do |user| %>
+      <% # next if !'show_dial'.in?(user.role.rules.pluck(:rule)) %>
+      <tr class="<%= cycle('list_line_odd list', 'list_line_even list') %>">
+        <td class="table-primary fio"><%= user.fio %></td>
+        <td><%= t(user.rank) %></td>
+        <td><%= t(user.role.try(:role)) %></td>
+        <td><%= t(user.group.try(:group)) %></td>
+        <td><%= user.phone %></td>
+        <td><%= user.phone1 %></td>
+        <td><%= user.phone2 %></td>
+        <td><%= user.pincode %></td>
+        <td><font color=<%= user.active ? 'green' : 'red' %>><%= t(user.active.to_s) %></font></td>
+        <td><button class="btn btn-primary"><%= link_to t('.show'),  user, style: 'color: white', class: "user_link" %></button</td>
+        <td><button class="btn"><%= link_to t('.edit'), edit_user_path(user), class: "user_link" %></button></td> 
+        <!--<td><%= link_to t('.delete'), user, method: :delete, data: { confirm: t('are_you_sure') } %></td>-->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!-- <%= link_to t('labels.new'), new_user_path, class: "user_link btn btn-success", style: "color: white" %> -->
+
+<%== pagy_nav(@pagy) %>
+</div>

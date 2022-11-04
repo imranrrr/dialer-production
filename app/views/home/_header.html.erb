@@ -1,0 +1,63 @@
+<% if @current_user.present? %>
+  
+	<div class="container-fluid">
+
+		<!-- Static navbar -->
+		<nav class="navbar-default navbar mx-auto" style: "margin-bottom: 0 !important" role="navigation">
+			<div class="navbar-header" style="margin-left: 520px">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+		   		<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<%= link_to t('labels.uy'), root_path, class: "bgImg user_link text-center", style: "float: left; height: 50px;" %>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="nav-item" style="margin-left: 20px"><%=link_to t('labels.users'), users_path  if allowed?(@current_user, 'show_user') %><!-- <div><%= link_to t('labels.l'), users_path, class: "usImg user_link text-center" %></div> --></li>
+					<!-- <li><%=link_to t('labels.groups'), groups_path if allowed?(@current_user, 'show_group') %></li> -->
+					<li><%=link_to t('labels.dials'), dials_path if allowed?(@current_user, 'show_dial') %><!-- <div><%= link_to t('labels.j'), dials_path, class: "dImg user_link text-center" %></div> --></li>
+					<!--<li><%=link_to t('labels.DialsToUsers'), dialstousers_path if allowed?(@current_user, 'show_dial_user') %></li>
+					<li><%=link_to t('labels.DialsToGroups'), dialstogroups_path if allowed?(@current_user, 'show_dial_group') %></li>-->
+					<!-- <li><%=link_to t('labels.roles'), roles_path  if allowed?(@current_user, 'show_role') %></li> -->
+					<!-- <li><%=link_to t('labels.rules'), rules_path if allowed?(@current_user, 'show_rule') %></li> -->
+					<!-- <li><%=link_to t('labels.RolesToRules'), rolestorules_path if allowed?(@current_user, 'show_role_to_rule') %></li>-->
+					<!-- <li><%=link_to t('labels.logs'), logs_path if allowed?(@current_user, 'log_reader') %></li> -->
+					<!-- <li><%=link_to t('labels.cdrs'), cdrs_path if allowed?(@current_user, 'cdr_reader') %></li> -->
+                    <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('labels.additional') %><b class="caret"></b></a>
+                    <ul class="dropdown-menu multi-level">
+                        <li><%=link_to t('labels.record'), records_path if allowed?(@current_user, 'show_dial') %></li>
+                        <li class="divider"></li>
+                        <li><%=link_to t('labels.groups'), groups_path  if allowed?(@current_user, 'show_group') %></li>
+                        <li class="divider"></li>
+                        <li><%= link_to t('labels.roles'), roles_path if allowed?(@current_user, 'show_role') %></li>
+                        <li class="divider"></li>
+                        <li><%= link_to t('labels.rules'), rules_path if allowed?(@current_user, 'show_rule') %></li>
+                        <li class="divider"></li>
+                        <li><%=link_to t('labels.logs'), logs_path if allowed?(@current_user, 'log_reader') %></li>
+                        <li class="divider"></li>
+                        <li><%=link_to t('labels.cdrs'), cdrs_path if allowed?(@current_user, 'cdr_reader') %></li>
+                    </ul><!-- <div><%= link_to t('labels.l'), groups_path, class: "pImg user_link text-center" %></div> -->
+                    </li>
+                    <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('labels.language') %><b class="caret"></b></a>
+                    <ul class="dropdown-menu multi-level">
+                    <li><%=link_to "En", controller: controller_name, action: action_name, locale: "en" %></li>
+                    <li class="divider"></li>
+                    <li><%=link_to "Ru", controller: controller_name, action: action_name, locale: "ru" %></li>
+                    <li class="divider"></li>
+                    <li><%=link_to "Uz", controller: controller_name, action: action_name, locale: "uz" %></li>
+                    </ul><!-- <div><%= link_to t('labels.l'), roles_path, class: "lImg user_link text-center" %></div> -->
+                    </li>
+           <% if @current_user %>
+            <li><%= link_to t('labels.logout'), auth_path, :method => :delete, data: {confirm: t('are_you_sure')} %><!-- <div><%= link_to t('labels.l'), roles_path, class: "oImg user_link text-center" %></div> --></li>
+
+           <% end %>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</nav>
+	<div>  
+
+<% end %>

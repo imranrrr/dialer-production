@@ -1,0 +1,84 @@
+ru:
+  activerecord:
+    errors:
+      messages:
+        blank: "Не может быть пустым"
+        record_invalid: "Запись неверная"
+      models:
+        user:
+          attributes:
+            phone:
+              not_a_number: "Не цифры"
+        link:
+          attributes:
+            rule_id:
+              taken: "Уже занято"
+    models:
+      user:
+        one: Пользователь
+        other: Пользователи
+      group:
+        one: Группа
+        other: Группы
+      dialstogroup:
+        one: Обзвон к группе
+        other: Обзвоны к группам
+      rolestorule:
+        one: Правило к роли
+        other: Правила к ролям
+      dial:
+        one: Обзвон
+        other: Обзвоны
+      dialstouser:
+        one: Обзвон к пользователю
+        other: Обзвоны к пользователям
+      rule:
+        one: Правило
+        other: Правила
+      role:
+        one: Роль
+        other: Роли   
+    attributes:
+      user:
+        fio: Фамилия Имя Отчество
+        phone: Главный сотовый телефон
+        phone1: Запасной сотовый телефон
+        phone2: Домашний телефон
+        rank: Воинское звание
+        role: Права
+        group: Группа
+        pincode: Пин код
+        active: Активный
+        pin: Положение ПИН
+      link:
+        rule_id: Идентификатор правила
+        role_id: Идентификтор роли
+      group:
+        group: Имя группы
+        group_description: Описание группы
+      dialgroup:
+        group: Ид
+        dial: Обзвон
+        group_name: Имя группы
+        dial_description: Описание обзвона
+        dial_url: URL обзвона
+        dialed: Звонили?
+      rolerule:
+        role: Роль
+        rule: Правило
+      dial:
+        id: ИД
+        sound_url: Путь к файлу
+        description: Описание
+        dialed: Звонили
+        recorded: Записан
+        created_at: Создан
+        updated_at: Изменен
+      dialuser:
+        user: Пользователь
+        dial: Обзвон
+        dialed: Звонили
+    record: 
+      dial: 
+        description: Описание
+        recorded: Записан

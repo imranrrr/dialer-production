@@ -1,0 +1,44 @@
+<%= form_with(model: dialstogroup) do |form| %>
+  <% if dialstogroup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dialstogroup.errors.count, "error") %> prohibited this dialstogroup from being saved:</h2>
+
+      <ul>
+        <% dialstogroup.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">  
+    <%= form.label :group %>
+    <% if action_name == 'edit' %>
+      <%= form.select :group, @groups, :selected => @current_user.group.group  %>
+    <% else %>
+      <%= form.select :group, @groups, :selected => @groups.first  %>
+    <% end %>    
+    
+  </div>
+
+<!-- TODO FIX checkboxes about set groups and dials from db!  -->
+
+  <div class="field">
+    <%= form.label :dial %>
+    <% if action_name == 'edit' %>
+      <%= form.select :dial, @dials, :selected => @current_user.dials.try(:dial)  %>
+    <% else %>
+      <%= form.select :dial, @dials, :selected => @dials.first  %>
+    <% end %>    
+   
+  </div>
+
+  <div class="field">
+    <%= form.label :dialed %>
+    <%= form.check_box :dialed, :disabled => true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

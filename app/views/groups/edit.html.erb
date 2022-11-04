@@ -1,0 +1,7 @@
+<h1 class="text-center text-primary"><%=@model_name_single %></h1>
+<%= render 'form', group: @group %>
+
+<div style="margin-left: 45%">
+<button class="btn"><%= link_to t('labels.show'), @group, class: "user_link" %></button> |
+<button class="btn btn-info"><%= link_to t('labels.back'), groups_path, class: "user_link", style: "color: white" %></button
+</div>

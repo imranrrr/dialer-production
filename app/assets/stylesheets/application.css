@@ -1,0 +1,40 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+* {box-sizing: border-box;}
+body {margin-bottom: 0 !important; min-height: 100vh;}
+.breg{ background-image: url(https://t4.ftcdn.net/jpg/02/34/87/19/360_F_234871992_lGEdtt3uUjl4qmmeVXyjYWz45y0dGCFr.jpg); background-size: cover; width: 100%; height: 100vh} 
+.list_line_even { background: #e3e2de; } 
+.list_line_odd { background: #c2c1bc; } 
+.bgImg { background-image: url("https://milliygvardiya.uz/uploads/pages/znak.png"); width: 50px; background-size: cover} 
+.reg { background-image: url("https://milliygvardiya.uz/uploads/pages/znak.png"); background-repeat: no-repeat; background-size: cover; width: 500px; height: 500px; margin: auto} 
+.user_link:hover {background-color: transparent; text-decoration: none;}
+.box { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+width: 500px; height: 750px}
+.box select { margin-left: 35%; margin-top: 10px; width: 170px; height: 40px; padding: 6px 12px; font-size: 14px; color: #555; background-color: #fff; background-image: none; border: 1px solid #ccc; border-radius: 4px; box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%); transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;}
+input { width: auto; display: initial !important}
+select { width: 170px; heigh: 40px; padding: 6px 12px; font-size: 14px; color: #555; background-color: #fff; background-image: none; border: 1px solid #ccc; border-radius: 4px; box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%); transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;}
+.usImg { background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/1200px-OOjs_UI_icon_userAvatar.svg.png); background-size: cover; top: 15px; width: 18px; position: absolute; left: 111px; }
+.dImg { background-image: url(https://www.pinclipart.com/picdir/middle/307-3071078_call-contact-dial-communication-svg-png-icon-.png); background-size: cover; top: 15px; width: 18px; position: absolute; left: 76px;}
+.pImg { background-image: url(https://iconape.com/wp-content/files/xr/367807/svg/add-circle-logo-icon-png-svg.png); background-size: cover; width: 20px; top: 15px; left: 140px; position: absolute; height: 22px }
+a span {display: none}
+.lImg { background-image: url(https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_language_48px-512.png); background-size: cover; top: 16px; width: 18px; position: absolute; left: 62px}
+.oImg { background-image: url(https://www.pngfind.com/pngs/m/304-3041534_png-file-svg-log-out-logo-png-transparent.png); background-size: cover; top: 16px; width: 18px; position: absolute; left: 62px}
+.highlight {
+  background-color: yellow;
+}
+div.field, div.actions { display: contents;}
+.disP {display: initial}

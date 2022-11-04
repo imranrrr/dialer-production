@@ -1,0 +1,56 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<h1 class="text-center text-primary" style="margin-bottom: 20px">Logs</h1>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th scope="col" >Date/Time</th>
+      <th scope="col">Status</th>
+      <th scope="col">Url</th>
+      <th scope="col">Path</th>
+      <th scope="col">User inspect</th>
+      <th scope="col">User</th>
+      <th scope="col">Group</th>
+      <th scope="col">Role</th>
+      <th scope="col">Rank</th>
+      <th scope="col">Time spent</th>
+      <th scope="col">User agent</th>
+      <th scope="col">Ip</th>
+      <th scope="col">Request method</th>
+      <th scope="col">Http host</th>
+      <th scope="col">Exception class</th>
+      <th scope="col">Exception message</th>
+      <th scope="col" colspan="1">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @logs.each do |log| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td><%= log.created_at %></td>
+        <td><%= log.status %></td>
+        <td><%= log.url %></td>
+        <td><%= log.path %></td>
+        <td><%= log.user_inspect.slice(2, 100) + '...' if log.user_inspect %></td>
+        <td><%= log.user_id %></td>
+        <td><%= log.group_id %></td>
+        <td><%= log.role_id %></td>
+        <td><%= log.rank %></td>
+        <td><%= log.time_spent %></td>
+        <td><%= log.user_agent %></td>
+        <td><%= log.ip %></td>
+        <td><%= log.request_method %></td>
+        <td><%= log.http_host %></td>
+        <td><%= log.exception_class %></td>
+        <td><%= log.exception_message %></td>
+        <td><button class="btn btn-primary"><%= link_to 'Show', log, style: 'color: white', class: 'user_link' %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%== pagy_nav(@pagy) %>
+<br>
+

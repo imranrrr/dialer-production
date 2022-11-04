@@ -1,0 +1,35 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<h1 class="text-center text-primary"><%= @model_name %></h1>
+
+<h2 class="text-center text-danger"><%= t('labels.voice_messages') %></h2>
+
+<%= link_to t('labels.new_voice'), new_record_path, class: "btn btn-success", style: "color: white; margin-bottom: 10px" %>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <% prefix = "activerecord.record.dial." %>
+      <th><%= t(prefix + "description") %></th>
+      <th><%= t(prefix + "recorded") %></th>
+      <th colspan="4"><%= t('labels.action') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @records.each do |record| %>
+      <tr>
+        <td><%= record.description %></td>
+        <td><%= record.recorded %></td>
+        <td><%=button_to t('labels.record'), { action: "record_sound", id: record.id }, class: "my_class btn btn-info", id: "my_id" %></td>
+        <td><button class="btn"><%= link_to  t('labels.show'), record, class: "user_link" %></button></td>
+        <td><%= link_to  t('labels.edit'), edit_record_path(record), class: "btn btn-primary user_link", style: "color: white" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<!--<%= link_to t('labels.new_voice'), new_record_path, class: "btn btn-success", style: "color: white" %> -->
+
+<%== pagy_nav(@pagy) %>

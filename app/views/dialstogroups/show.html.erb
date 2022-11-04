@@ -1,0 +1,19 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<p>
+  <strong>Group:</strong>
+  <%= @dialstogroup.group.group %>
+</p>
+
+<p>
+  <strong>Dial:</strong>
+  <%= @dialstogroup.dial.description %>
+</p>
+
+<p>
+  <strong>Dialed:</strong>
+  <%= @dialstogroup.dialed %>
+</p>
+
+<%= link_to t('labels.edit'), edit_dialstogroup_path(@dialstogroup) %> |
+<%= link_to t('labels.back'), dialstogroups_path %>

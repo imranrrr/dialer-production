@@ -1,0 +1,10 @@
+<%= form_with url: {action: :search}, html: {class: "disP"} do |form| %>
+  <div class="field">
+    <%= form.label :search, t('labels.search_users') %>
+    <%= form.text_field :search, minlength: 5, required: true, class: "form-control", style: "width: 10%; margin-bottom: 20px" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit t('labels.search_small'), class: "btn btn-primary" %>
+  </div>
+<% end %>

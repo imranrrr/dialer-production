@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Milliy Gvardiya</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'custom', 'data-turbolinks-track': 'reload' %>
+    <script src="/vendor/js/my.js"></script>
+    <script src="/vendor/jquery/jquery-1.9.1.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/jquery/jquery-ui.css">
+    <link rel="short icon" href="https://milliygvardiya.uz/uploads/pages/znak.png">
+    
+  </head>
+
+  <body>
+
+    <%= render 'home/header' %>
+    <% flash.each do |type, mesg| %>
+      <div class="alert alert-primary" style="position: absolute" role="alert">
+        <%= mesg %>
+      </div>
+    <% end %>
+    <%= yield %>
+      <br>
+  </body>
+</html>

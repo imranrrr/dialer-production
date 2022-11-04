@@ -1,0 +1,124 @@
+ru:
+  true: Да
+  false: Нет
+  are_you_sure: Вы уверены?
+  helpers:
+    submit:
+      create: Создать %{model}
+      update: Изменить %{model}
+  halt:
+    errors:
+      messages:
+        unauthorized: Запрещено
+        not_acceptable: Не допустимо
+      descriptions:
+        unauthorized: Нет доступа
+        not_acceptable: Не допустимый параметр
+  messages:
+    hello: Привет
+    resend_code: Отправить код еще раз
+    record_created: Запись успешно обновлена
+    user_updated: Пользователь обновлен.
+    user_created: Пользователь создан.
+    user_deleted: Пользователь удален.
+    group_updated: Группа обновлена.
+    group_created: Группа создана.
+    group_deleted: Группа удалена.
+    group_not_deleted: Группа не удалена, пользоветелей > 0
+    no_admin_access: Вы должны быть админом для доступа к этой секции
+    you_signed_out: Вы успешно зашли
+    you_signed_in: Вы успешно зашли
+    invalid_code: Код неверный
+    phone_not_found: Невозможно найти аккаунт с этим телефоном, свяжитесь с пожжержкой если проблема сохранится
+    no_users_for_show: Нет пользователей для показа
+    no_groups_for_show: Нет групп для показа
+    dial_sound_url_presence: Звуковой url должен быть заполнен
+    dial_description_presence: Описание обзовна должно быть заполнено
+    dont_select_group_and_user: Для набора номера могут быть добавлены только группы и пользователи на одной странице. Не выбирайте одновременно группу и пользователей внутри группы
+    dial_wait_for_record_call: Ожидайте звонок для записи звука
+    dial_created: Обзвон создан
+    dial_updated: Обзвон обновлен
+    dial_deleted: Обзвон удален
+    dial_cant_make_sound: Can't make sound 
+    dial_run: Обзвон запущен
+    dials_to_group_updated: Обзвон к группам обновлен
+    role_created: Роль создана
+    role_updated: Рольобновлена
+    roles_to_rules_updated: Роль к правилам обновлена
+    role_deleted: Роль удалена
+    role_cant_be_deleted: Роль не может быть удалена
+    rule_created: Правило создано
+    rule_updated: Правило обновлено
+    rule_deleted: Правило удалено
+  global:
+    errors:
+      phone_format: Неправильный формат телефона, должен быть 998XXXXXXXXX
+      shold_be_filled: Должно быть заполнено
+      phone_taken: Телефон уже используется
+      phone_presence: Телефон должен быть заполнен
+      role_list: Роли нет в списке
+      group_list: Групы нет в списке
+      rank_list: Звания нет в списке
+      pin_length: Пин код должен состоять из 6 цифр
+      digit_only: Только цифры допустимы
+      group_taken: Имя группы уже занято
+      role_taken: Имя роли уже занято
+      not_a_number: Shoud be digits
+  labels:
+    show: Показать
+    edit: Редактировать
+    activate: Активировать
+    deactivate: Деактивировать
+    destroy: Удалить
+    logout: Выход
+    home: Домой
+    new: Новый пользователь
+    back: Назад
+    users: Пользователи
+    login: Вход
+    true: Правда
+    false: Ложь
+    groups: Группы
+    action: Действие
+    record: Записать звук
+    dial: Обзвонить
+    group_and_user: Группа и пользователь
+    dials: Обзвоны
+    roles: Роли
+    rules: Правила
+    cdrs : Логи вызовов
+    logs: Отчеты пользования
+    report: Отчеты
+    basic_report: Основной отчет
+    unpined_report: Отчет о недозвонах
+    common_report_type: "Выберите дату:"
+    common_report_date: Дата общего отчета
+    show_report: Показать общий отчет
+    no_users: Нет пользователей для обзвона
+    additional: Дополнительные
+    first: Ссылочные имена
+    last: Информация
+    language: Язык
+    new_role: Новая роль
+    role: Роль
+    role_description: Описание роли
+    rules: Правила
+    new_group: Новая группа
+    rule: Правило
+    rule_description: Описание правило
+    obzvon: Обзвон
+    new_call: Новый обзвон
+    full_group_list: Список групп
+    unknown: Неизвестный
+    log: Подтвердил
+    play_and_get_digits: Поднял но не подтвердил
+    search: Поиск групп
+    search_small: Поиск
+    show_update: Обновить
+    report_date_to: до
+    search_users: Поиск пользователей
+    new_voice: Новое сообщение
+    voice_messages: Головые сообщения
+    record_description: Описание
+    record_recorded: Зписан
+    editing_record: Редактирование Записи

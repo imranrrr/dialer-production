@@ -1,0 +1,84 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table class="table table-hover table-bordered", style="width: 40%; margin-left: 30%" >
+<thead>
+  <tr>
+    <th scope="col">First</th>
+    <th scope="col">Last</th>
+  </tr>
+</thead>
+<tbody>
+  <tr class="field">
+    <td><%= form.label :fio %></td>
+    <td><%= form.text_field :fio, class: "formContr form-control" %></td>
+  </tr>
+
+  <tr class="field">
+    <td><%= form.label :rank %></td>
+    <% if action_name == 'edit' %>
+      <td><%= form.select :rank, @ranks, :selected => @user.rank %></td>
+    <% else %>
+      <td><%= form.select :rank, @ranks, :selected => @default_rank %></td>
+    <% end %>
+  </tr>
+
+  <tr class="field">
+    <td><%= form.label :role %></td>
+    <% if action_name == 'edit' %>
+      <td><%= form.select :role, @roles, :selected => @user.role.try(:role) %></td>
+    <% else %>
+      <td><%= form.select :role, @roles, :selected => @roles.first %></td>
+    <% end %>
+  </tr>
+
+<!-- TODO FIX checkboxes about set groups and dials from db!  -->
+
+  <tr class="field">
+    <td><%= form.label :group %></td>
+    <% if action_name == 'edit' %>
+      <td><%= form.select :group, @groups, :selected => @user.group.try(:group) %></td>
+    <% else %>
+      <td><%= form.select :group, @groups, :selected => @groups.first  %></td>
+    <% end %>
+  </tr>
+
+  <tr class="field">
+    <td><%= form.label :phone %></td>
+    <td><%= form.number_field :phone, in: 998000000000..998999999999, class: "form-control", value: "998" %></td>
+  </tr>
+
+  <tr class="field">
+    <td><%= form.label :phone1 %></td>
+    <td><%= form.number_field :phone1, in: 998000000000..998999999999, class: "form-control", value: "998" %></td>
+  </tr>
+
+  <tr class="field">
+    <td><%= form.label :phone2 %></td>
+    <td><%= form.number_field :phone2, in: 998000000000..998999999999, class: "form-control", value: "998" %></td>
+  </tr>
+
+  <tr class="field">
+    <td><%= form.label :pincode %></td>
+    <td><%= form.check_box :pincode %></td>
+  </tr>
+
+  <tr class="field">
+    <td><%= form.label :active %></td>
+    <td><%= form.check_box :active %></td>
+  </tr>
+</tbody>
+</table>
+  <div class="actions text-center" style="display: block">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

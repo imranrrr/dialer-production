@@ -1,0 +1,38 @@
+<%= form_with(model: dial) do |form| %>
+  <% if dial.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dial.errors.count, "error") %> prohibited this dial from being saved:</h2>
+
+      <ul>
+        <% dial.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :record %>
+    <% records_arr = [nil] + @records.pluck(:description)  %>    
+    <% if action_name == 'edit' %>
+    <% selected = dial.record.description if dial.record %>   
+      <%= form.select :record, records_arr, :selected => selected %>      
+    <% else %>      
+      <%= form.select :record, records_arr, :selected => records_arr.first %>
+    <% end %>
+  </div>  
+
+
+  <div>
+    <%= form.hidden_field :sound_url %>
+  </div>
+
+  <div class="field text-center" style="display: block">
+    <%= form.label :description, style: "font-size: 22px" %>
+    <%= form.text_field :description, class: "form-control", style: "width: 20% !important; display: block !important; margin: auto" %>
+  </div>
+
+  <div class="actions text-center" style="display: block; margin-top: 10px">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,58 @@
+en:
+  users:
+    index:
+      title: Full Users list
+      action: Action
+      show: Show
+      edit: Edit
+      activate: Activate
+      deactivate: Deactivate
+    edit:
+      new: new one
+      hint: Phone format 998XXXXXXXXX
+  auth:
+    phone: What’s your cell phone?
+    phone_placeholder: 998XXXXXXXXX
+    fio: First Name Last Name
+    index:
+      message1: By continuing you agree to our 
+      message2: Terms of Use
+      button: Continue
+    verify:
+      info: We just call you for say a six digit code, please enter it in the box below.
+      change: Change Phone
+      phone: Phone number
+      code: Auth code
+      button: Continue to your account
+  home:
+    index:
+      welcome: Welcome to the National Guard notification system!
+      you_are: You are
+  groups:
+    index:
+      title: Full group list
+    edit:
+      new: new one
+  dialstogroups:
+    index:
+      title: Make links Dials To Groups
+  rolestorules:
+    index:
+      title: Make links Roles To Rules
+  dialstousers:
+    index:
+      title: Make links Dials to Users
+  roles:
+    index:
+      title: Make Roles
+  rules:
+    index:
+      title: Make Rules  
+  dials:
+    index: 
+      title: Dials
+    basic_report:
+      title: Basic report
+    common_report:
+      title: Common report
+      

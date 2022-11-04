@@ -1,0 +1,50 @@
+<h1><%= @model_name %></h1>
+<h2><%= t '.title'%> <%= @report_date %> </h2>
+
+<%= render 'report' %>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <% prefix = "activerecord.attributes.dial." %>
+      <th scope="col"><%= t(prefix + "id") %></th>
+      <th scope="col"><%= t(prefix + "description") %></th>
+      <th scope="col"><%= t("activerecord.attributes.user.fio") %></th>
+      <th scope="col"><%= t(prefix + "dialed") %></th>
+      <th scope="col"><%= t('labels.group_and_user') %></th>
+      <th scope="col"><%= t 'labels.action' %></th>
+      <th scope="col"><%= t 'labels.reports' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dials.each do |dial| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td><%= dial.id %></td>
+        <td><%= dial.description %></td>
+        <td><%= dial.user.fio %></td>
+        <% any_dialed =  dial.dialed? || dial.dialstousers.pluck(:dialed).any? || dial.dialstogroups.pluck(:dialed).any? %>
+        <td><font color=<%= dial.dialed ? 'green' : 'red' %>><%= t(dial.dialed.to_s) %></font></td>
+        <td>
+          <% dial.users.each do |u| %>
+            <%= u.group.group + ' | ' + u.fio %></br>
+          <% end %>
+          
+          <% dial.groups.each do |g|%>
+            <% g.users.each do |u| %>
+              <%= u.group.group + ' | ' + u.fio %></br>
+            <% end %>
+          <% end %>
+        </td>
+        <td><button class="btn btn-primary"><%= link_to t('labels.show'), dial, style: 'color: white' %></button></td>
+       <td><button class="btn" style="margin-bottom: 5px"><%= link_to t('labels.basic_report'), basic_report_dial_path(dial), class: "user_link" if dial.dialed %></button><br>
+         <button class="btn"><%= link_to t('labels.unpined_report'), unpined_report_dial_path(dial), class: "user_link" if dial.dialed %></button><br>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+<%= link_to t('labels.back'), dials_path, class: "btn btn-info user_link", style: "color: white; margin-bottom: 40px" %>

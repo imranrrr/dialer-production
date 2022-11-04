@@ -1,0 +1,101 @@
+<!--<p id="notice"><%= notice %></p>-->
+<table class="table table-hover table-bordered", style="width: 50%; margin: auto">
+<thead>
+  <tr><th>First</th><th>Last</th></tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Calldate:</strong></td>
+  <td><%= @cdr.calldate %></td>
+</tr>
+
+<tr>
+  <td><strong>Caller ID:</strong></td>
+  <td><%= @cdr.clid %></td>
+</tr>
+
+<tr>
+  <td><strong>Source:</strong></td>
+  <td><%= @cdr.src %></td>
+</tr>
+
+<tr>
+  <td><strong>Destination:</strong></td>
+  <td><%= @cdr.dst %></td>
+</tr>
+
+<tr>
+  <td><strong>Context:</strong></td>
+  <td><%= @cdr.dcontext %></td>
+</tr>
+
+<tr>
+  <td><strong>Channel:</strong></td>
+  <td><%= @cdr.channel %></td>
+</tr>
+
+<tr>
+  <td><strong>Destination channel:</strong></td>
+  <td><%= @cdr.dstchannel %></td>
+</tr>
+
+<tr>
+  <td><strong>Last app:</strong></td>
+  <td><%= @cdr.lastapp%></td>
+</tr>
+
+<tr>
+  <td><strong>Last data:</strong></td>
+  <td><%= @cdr.lastdata %></td>
+</tr>
+
+<tr>
+  <td><strong>Duration:</strong></td>
+  <td><%= @cdr.duration %></td>
+</tr>
+
+<tr>
+  <td><strong>Billed sec:</strong></td>
+  <td><%= @cdr.billsec %></td>
+</tr>
+
+<tr>
+  <td><strong>Start:</strong></td>
+  <td><%= @cdr.start %></td>
+</tr>
+
+<tr>
+  <td><strong>Disposition:</strong></td>
+  <td><%= @cdr.disposition %></td>
+</tr>
+
+<tr>
+  <td><strong>Accountcode:</strong></td>
+  <%= @cdr.accountcode %></td>
+</tr>
+
+<tr>
+  <td><strong>Userfield:</strong></td>
+  <td><%= @cdr.userfield %></td>
+</tr>
+
+<tr>
+  <td><strong>Uniqueid:</strong></td>
+  <td><%= @cdr.uniqueid %></td>
+</tr>
+
+
+<tr>
+  <td><strong>Amaflags:</strong></td>
+  <td><%= @cdr.amaflags %></td>
+</tr>
+
+
+<tr>
+  <td><strong>End :</strong></td>
+  <td><%= @cdr.end %></td>
+</tr>
+</tbody>
+</table>
+
+<%= link_to 'Back', cdrs_path, class: "btn btn-info", style: "color: white; margin-left: 25%; margin-top: 20px" %>

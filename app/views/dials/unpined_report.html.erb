@@ -1,0 +1,83 @@
+<h1 class="text-center text-primary"><%= @model_name_single %></h1>
+
+<h2 class="text-center text-danger">  <%=@dial.id %> | <%=@dial.description %> | <%=@dial.updated_at %>  </h2>
+<h2 class="text-center text-danger"><%= t('labels.unpined_report') %></h2>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <% prefix = "activerecord.attributes.user." %>"
+      <th scope="col"><%= t(prefix + "fio") %></th>
+      <th scope="col"><%= t(prefix + "rank") %></th>
+      <th scope="col"><%= t(prefix + "group") %></th>
+      <th scope="col"><%= t(prefix + "phone") %></th>
+      <th scope="col"><%= t(prefix + "pin") %></th>
+      <th scope="col"><%= t(prefix + "active") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dial.groups.each do |d| %>          
+      <% d.users.each do |u| %>
+        <% pin_code_is_ok  = [] %>   
+        <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+          <td><%= u.fio %></td>     
+          <td><%= u.rank %></td>
+          <td><%= u.group.group %></td>       
+          <td>
+        <% [u.phone, u.phone1, u.phone2].each do |phone|%>
+          <%= phone %>
+          <% cdr = find_cdr_by_phone_and_dial_id(phone, @dial.id, u.pincode) %>
+            <%  pin_code_is_ok << true if cdr %>                     
+            <br>              
+        <%end %>
+          </td>
+          <td>
+             <%= t('labes.pin_is_ok') %>
+           </td>                   
+               <% any_pin_true = pin_code_is_ok.include? true  %>
+            <td>   
+           <font color=<%=  any_pin_true  ? 'green' : 'red' %>><%= t( any_pin_true.to_s) %></font>
+          </td>
+        </tr> 
+      <% end %>
+    <% end %>                 
+                <% @dial.users.each do |u| %>
+                <% pin_code_is_ok  = [] %> 
+                <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+                  <td><%= u.fio %></td>     
+                  <td><%= u.rank %></td>
+                  <td><%= u.group.group %></td>      
+                  <td>
+                  <% [u.phone, u.phone1, u.phone2].each do |phone|%>
+                    <%= phone %>
+                    <% cdr = find_cdr_by_phone_and_dial_id(phone, @dial.id, u.pincode) %>
+                        <%  pin_code_is_ok << true  if cdr %>
+                    <br>              
+                  <%end %>  
+                  </td>
+                  <td>
+                   <%= t('labes.pin_is_ok') %>
+                   </td>                  
+                   <% any_pin_true = pin_code_is_ok.include? true  %>
+                   <td>   
+                   <font color=<%=  any_pin_true  ? 'green' : 'red' %>><%= t( any_pin_true.to_s) %></font>
+                  </td>
+                </tr> 
+              <% end %>
+      </tbody>        
+    </table>
+    
+
+<br>
+<button class="btn btn-primary" onclick="printPage()"><%= link_to t('labels.PDF'), dials_path, class: "user_link", style: "font-size: 18px; color: white;" %>PDF</button>
+<%= link_to t('labels.back'), dials_path, class: "user_link btn btn-info", style: "font-size: 18px; color: white;" %>
+<br>
+<script type="text/javascript">
+ const printPage = () => {
+  print();
+}
+
+// let print = setTimeout(function(){ window.print(); }, 1000 );
+
+</script>

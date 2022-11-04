@@ -1,0 +1,59 @@
+<!--<p id="notice"><%= notice %></p>-->
+<% if @index_allowed %>
+
+<script>
+
+//console.log('');
+window.onload = () => {
+	console.log(1)
+}
+</script>
+
+
+<h1 class='text-center text-primary'><%= @model_name %></h1>
+<h2 class="text-center text-danger" style="margin-bottom: 20px"><%= t('labels.full_group_list') %> </h2>
+
+<%= link_to t('labels.new_group'), new_group_path, class: "user_link btn btn-success", style: "color: white; margin-bottom: 10px" %>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <% prefix = "activerecord.attributes.group." %>
+      <th scope="col" class="text-center"><%= t(prefix + "group") %></th>
+      <th scope="col" class="text-center"><%= t(prefix + "group_description") %></th>
+      <th scope="col" style="width: 120px" class="text-center"><%= t(prefix + "parent_group") %></th>
+      <th scope="col"><%= t(prefix + "child_group") %></th>
+      <th scope="col" colspan="3" class="text-center"><%= t 'labels.action' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @groups.each do |group| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td><%= '' if group.children? %> <%= '' if group.childless? %> <%= group.group %> </td>
+        <td><%= group.group_description %> </td>
+        <td><%= group.parent.group if group.parent %> </td>
+        <td>
+        <!-- <div><td><%= group.users.pluck(:fio)  %></td></div> -->
+        <% group.children.each do |child| %>
+          <%= child.group %>
+        <% end %>
+        </td>
+        <td><button class="btn btn-primary"><%= link_to t('labels.show'), group, style: 'color: white', class: "user_link" %></button></td>
+        <td><button class="btn"><%= link_to t('labels.edit'), edit_group_path(group), class: "user_link" if group.id != 1  && group.id != 2 %></button></td>
+        <td><button class="btn btn-danger"><%= link_to t('labels.destroy'), group, method: :delete, style: 'color: white', class: "user_link",  data: { confirm: t('are_you_sure') }  if group.id != 1 && group.id != 2 %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!-- <%= link_to t('labels.new_group'), new_group_path, class: "user_link btn btn-success", style: "color: white" %> -->
+
+<% else %>
+  <%= t('messages.no_groups_for_show') %>.
+<% end %>
+
+<%== pagy_nav(@pagy) %>
+<br>

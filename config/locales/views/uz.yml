@@ -1,0 +1,53 @@
+uz:
+  users:
+    index:
+      title: Foydalanuvchilar to'liq ro'yhati
+      action: Harakat
+      show: Ko'rsatish
+      edit: Tahrirlash      
+      activate: Faollashtirish
+      deactivate: O'chirish
+    edit:
+      new: Yangi
+      hint: Telefon raqam formati 998 XX XXX XX XX
+  auth:
+    phone: Sizning telefon raqamingiz?
+    phone_placeholder: 998 XX XXX XX XX
+    fio: Ism va Familiya
+    index:
+      message1: Davom etish orqali siz bizning shartlarimizga rozilik bildirasiz
+      message2: Foydalanish shartlari
+      button: Davom etish
+    verify:
+      info: Biz sizga faqat olti xonali kodni aytish uchun qo'ng'iroq qilamiz, uni quyidagi maydonchaga kiriting.
+      change: Raqamni almashtirish
+      phone: Telefon raqam
+      code: Tanib olish kodi
+      button: O'z hisobingizda davom eting
+  home:
+    index:
+      welcome: Habarlash tizimiga Hush kelibsiz!
+      you_are: Siz
+  groups:
+    index:
+      title: Sarlavha
+    edit:
+      new: yangi
+  dialstogroups:
+    index:
+      title: Guruhlarga havolalar yaratish
+  rolestorules:
+    index:
+      title: Rollarni Qoidalarga havola qiling
+  dialstousers:
+    index:
+      title: Ishoralarni yaratish Foydalanuvchilar uchun terish
+  dials:
+    index: 
+      title: Terish
+    basic_report:
+      title: Asosiy hisobot
+    common_report:
+      title: Umumiy hisobot
+      
+            

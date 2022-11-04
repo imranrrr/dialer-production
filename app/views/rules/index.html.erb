@@ -1,0 +1,32 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<h1 class="text-center text-primary" style="margin-bottom: 20px"><%= @model_name %></h1>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th scope="col"><%= t 'labels.rule' %></th>
+      <th scope="col"><%= t 'labels.rule_description' %></th>
+      <th scope="col" colspan="3"><%= t 'labels.action' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rules.each do |rule| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td><%= rule.rule %></td>
+        <td><%= rule.rule_description %></td>
+        <td><button class="btn btn-primary"><%= link_to  t('labels.show'), rule, style: 'color: white', class: "user_link" %></button></td>
+        <td><button class="btn"><%= link_to  t('labels.edit'), edit_rule_path(rule), class: "user_link" %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!--<%= link_to t('labels.new'), new_rule_path, class: "btn btn-success", style: "color: white; margin-bottom: 20px"  %>-->
+
+
+
+

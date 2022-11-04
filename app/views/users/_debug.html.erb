@@ -1,0 +1,9 @@
+<!--
+<% if users %>
+  <% users.each do |user| %>
+    <%= user.group.ancestors.each {|a| a.group.inspect }%>
+    <br>
+    <%= user.role.rules.each {|r| r.rule.inspect} %>
+  <% end %>
+<% end %>
+-->

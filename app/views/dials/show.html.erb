@@ -1,0 +1,39 @@
+<!--<p id="notice"><%= notice %></p>-->
+<script src="/vendor/js/my.js"></script>
+<h2 class="text-center text-primary"><%= t ('labels.obzvon') %> </h2>
+
+<% prefix = "activerecord.attributes.dial." %>
+
+<p class="text-center" style="font-size: 18px">
+  <strong><%= t(prefix +'description') %>:</strong>
+  <%= @dial.description %>
+</p>
+
+<p style="position: absolute;">
+  <strong><%= t(prefix +'record') %>:</strong>
+  <% if @dial.record %>
+    <font color='green'><%=@dial.record.description %></font>
+  <% else%>
+    <font color='red'><%= t 'labels.no_record_assigned' %></font>
+  <% end %>
+</p>
+
+<p class="text-center" style="font-size: 18px">
+  <strong><%= t(prefix +'created_at') %>:</strong>
+  <%= format_time @dial.created_at %>
+</p>
+
+<p class="text-center" style="font-size: 18px">
+  <strong><%= t(prefix +'updated_at') %>:</strong>
+  <%= format_time @dial.updated_at %>
+</p>
+
+<p class="text-center" style="font-size: 18px">
+  <strong><font color="red"><%= t('messages.dont_select_group_and_user') %></font></strong>
+</p>
+
+<!-- <div style="margin-bottom: 5px"><%= render 'search', dial: @dial %></div> -->
+<%= render 'form_dials', dialsgroups: @dialsgroups, dial: @dial %>
+<div style="margin-bottom: 10px"><%= render 'search', dial: @dial %></div>
+<button class="btn"><%= link_to t('labels.edit'), edit_dial_path(@dial), class: "user_link", style: "font-size: 18px" %></button>
+<button class="btn btn-primary"><%= link_to t('labels.back'), dials_path, class: "user_link", style: "color: white; font-size: 18px; padding-bottom: 40px" %></button>

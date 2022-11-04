@@ -1,0 +1,10 @@
+<%= form_with url: "/roles/#{role.id}/mass_update", method: :post do |form| %>
+<%= form.hidden_field role.id %>
+
+<%= form.collection_check_boxes(:rule_id,  rules, :id, :rule) do |r| %>
+    <% selected = r.object.rolestorules.selected(role.id, r.object.id).any? %>
+    <%= r.label(class: "check_box") { r.check_box(checked: selected, class: "add_margin") + r.object.rule_description } %>
+  <br>
+<% end %>
+<%= form.submit class: "btn btn-primary" %>
+<% end %>

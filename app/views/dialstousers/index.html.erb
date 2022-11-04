@@ -1,0 +1,35 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<h1><%= @model_name %></h1>
+<h2><%= t '.title'%> </h2>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+    <% prefix = "activerecord.attributes.dialuser." %>
+      <th scope="col"><%= t(prefix + "user") %></th>
+      <th scope="col"><%= t(prefix + "dial") %></th>
+      <th scope="col"><%= t(prefix + "dial_url") %></th>
+      <th scope="col"><%= t(prefix + "dialed") %></th>
+      <th scope="col" colspan="3"><%= t 'labels.action' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dialstousers.each do |dialstouser| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td><%= dialstouser.user.fio %></td>
+        <td><%= dialstouser.dial.description %></td>
+        <td><%= dialstouser.dial.sound_url %></td>
+        <td><font color=<%=  dialstouser.dialed ? 'red' : 'green' %>><%= t(dialstouser.dialed.to_s) %></font></td>
+        <td><button class="btn btn-primary"><%= link_to t('labels.show'), dialstouser, style: 'color: white' %></button></td>
+        <td><button class="btn"><%= link_to t('labels.edit'), edit_dialstouser_path(dialstouser) %></button></td>
+        <td><button class="btn btn-danger"><%= link_to t('labels.destroy'), dialstouser, style: 'color: white', method: :delete, data: { confirm: t('are_you_sure') } %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('labels.new'), new_dialstouser_path %>

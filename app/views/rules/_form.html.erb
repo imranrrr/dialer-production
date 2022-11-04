@@ -1,0 +1,38 @@
+<%= form_with(model: rule) do |form| %>
+  <% if rule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rule.errors.count, "error") %> prohibited this rule from being saved:</h2>
+
+      <ul>
+        <% rule.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table class="table table-hover table-bordered", style="width: 30% !important; margin: auto">
+<thead>
+  <tr>
+    <th>First</th><th>Last</th>
+  </tr>
+</thead>
+<tbody>
+  <tr class="field">
+  <td><%= form.label :rule %></td>
+    <% if action_name == 'edit' %>
+      <td><%= form.text_field :rule, disabled: true, class: "form-control" %></td>
+    <% else %>
+      <td><%= form.text_field :rule, class: "form-control" %></td>
+    <% end %>      
+  </tr>
+
+  <tr class="field">
+    <td><%= form.label :rule_description %></td>
+    <td><%= form.text_area :rule_description, class: "form-control" %></td>
+  </tr>
+</tbody>
+</table>
+  <div class="actions text-center", style="margin-top: 1%; display: block">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

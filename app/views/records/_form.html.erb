@@ -1,0 +1,28 @@
+<%= form_with(model: record) do |form| %>
+
+<% if record.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(record.errors.count, "error") %> prohibited this record from being saved:</h2>
+
+    <ul>
+      <% record.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="field">
+  <%= form.hidden_field :sound_url %>
+</div>
+
+<div class="field">
+  <%= form.label t('labels.record_description'), style: "margin-left: 38%; margin-bottom: 20px" %>
+  <%= form.text_field :description, class: "form-control", style: "width: 10%" %>
+</div>
+
+<div class="actions">
+  <%= form.submit t('labels.new_voice'), class: "btn btn-primary usesr_link" %>
+</div>
+
+<% end %>

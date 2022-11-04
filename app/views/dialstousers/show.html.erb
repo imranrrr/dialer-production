@@ -1,0 +1,16 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<% prefix = "activerecord.attributes.dialuser." %>
+
+<p>
+  <strong><%= t(prefix +'user') %>:</strong>
+  <%= @dialstouser.user.fio %>
+</p>
+
+<p>
+  <strong><%= t(prefix +'dial')%>:</strong>
+  <%= @dialstouser.dial.description %>
+</p>
+
+<%= link_to t('labels.edit'), edit_dialstouser_path(@dialstouser) %> |
+<%= link_to  t('labels.back'), dialstousers_path %>

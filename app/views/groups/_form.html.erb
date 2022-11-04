@@ -1,0 +1,48 @@
+<%= form_with(model: group) do |form| %>
+  <% if group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+        <% group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table class="table table-hover table-bordered" style="width: 30%; margin-left: 35%">
+<thead>
+  <tr>
+    <th>First</th>
+    <th>Last</th>
+  </tr>
+</thead>
+<tbody>
+  <tr class="field">
+    <td><%= form.label :group%></td>
+    <td><%= form.text_field :group, class: "form-control" %></td>
+  </tr>
+
+  <tr class="field">
+    <td><%= form.label :group_description %></td>
+    <td><%= form.text_area :group_description, class: "form-control" %></td>
+  </tr>
+
+
+  <tr class="field">
+    <td><%= form.label :parent %></td>
+    <% if action_name == 'edit' %>
+      <td><%= form.select :parent, @groups, :selected => @group.try(:group)  %></td>
+    <% else %>
+      <td><%= form.select :parent, @groups, :selected => @groups.first  %></td>
+    <% end %>
+  </tr>
+</tbody>
+</table
+  <%= form.hidden_field :parent, value: group.ancestry %>
+
+
+  <div class="actions text-center" style="display: block">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

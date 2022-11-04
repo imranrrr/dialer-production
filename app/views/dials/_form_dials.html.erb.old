@@ -1,0 +1,60 @@
+<%= form_with url: "/dials/#{dial.id}/mass_update", method: :post do |form| %>
+<%= form.hidden_field dial.id %>
+
+<script>
+function switcher_for_user(group_id, user_id) {
+  console.log("Here will be nice USER script, user_params:" ,user_id, "group_params:",  group_id);
+}
+
+function switcher_for_group(group_id ) {
+  console.log("Here will be nice GROUP script, group_params:",  group_id);
+}
+</script>
+
+
+
+<div style="background-color:gray;color:black;padding:3px;" >
+ 
+   <%= form.collection_check_boxes(:group_id,  dialsgroups, :id, :group) do |b| %>
+     <div style = "border:1px solid black;">
+        <% g_dialed = b.object.dialstogroups.find_by_group_id_and_dial_id(b.object.id, dial.id).dialed if b.object.dialstogroups.find_by_group_id_and_dial_id(b.object.id, dial.id) %>
+        <% g_dialed_all = g_dialed || dial.dialed %>
+        <% g_selected = b.object.dial_ids.include? dial.id %>
+        <%= b.label(class: "check_box") do %>
+          <div>
+          <%= b.check_box( onchange: "switcher_for_group(#{b.object.id})" , checked: g_selected, disabled: g_dialed_all, class: "add_margin") %>
+          <span style="display:inline-block; width:200px;"><font color='blue'><%= b.text %></font></span>
+          <span style="display:inline-block; width:200px;"><font color='blue'><%= b.object.group_description %></font></span>
+          </div>
+        <% end %>
+    
+        <%= form.collection_check_boxes(:user_id,  b.object.users,  :id, :fio) do |u| %>
+          <% u_dialed = u.object.dialstousers.find_by_user_id_and_dial_id(u.object.id, dial.id).dialed if u.object.dialstousers.find_by_user_id_and_dial_id(u.object.id, dial.id) %>
+          <% u_dialed_all = u_dialed || dial.dialed %>
+          <% u_selected = u.object.dial_ids.include? dial.id %>
+          <div style="background-color:lightgray;color:black;padding:3px;" >
+            <%= u.label(class: "check_box") do %>
+              <div>
+              <span><%= u.check_box(onchange: "switcher_for_user(#{u.object.group.id}, #{u.object.id})", checked: u_selected, disabled: u_dialed_all, class: "add_margin") %></span>
+              <span style="display:inline-block; width:200px;"><%= u.text %></span>
+              <span style="display:inline-block; width:300px;"><%= u.object.role.role_description %></span>
+              <span style="display:inline-block; width:100px;"><%= u.object.rank %></span>
+              <span style="display:inline-block; width:100px;"><%= u.object.phone %></span>
+              <span style="display:inline-block; width:100px;"><%= u.object.phone1 %></span>
+              <span style="display:inline-block; width:100px;"><%= u.object.phone2 %></span>
+              </div>
+            <% end %> 
+          </div>   
+        <% end %>
+      </div>
+     <% end %>  
+</div>
+    <br>
+    <%= form.submit if !dial.dialed %>
+    <br>
+    <button class="btn"><%= link_to t('labels.basic_report'),  basic_report_dial_path(dial) if dial.dialed %></button>
+    <button class="btn"><%= link_to t('labels.unpined_report'),  unpined_report_dial_path(dial) if dial.dialed %></button>
+<% end %>
+<br>
+<%== pagy_nav(@pagy) %>
+<br>

@@ -1,0 +1,54 @@
+ru:
+  users:
+    index:
+      title: Список
+      action: Действие
+      show: Показать
+      edit: Редактировать
+      activate: Активировать
+      deactivate: Деактивировать
+    edit:
+      new: Новый
+      hint: Формат телефона 998XXXXXXXXX
+  auth:
+    phone: Какой Ваш основной сотовый телефон ?
+    phone_placeholder: 998XXXXXXXXX
+    fio: Фамилия Имя Отчество
+    index:
+      message1: Продолжая Вы соглашаетесь с
+      message2: Правилами использования
+      button: Далее
+    verify:
+      info: Вам отправлен вызов с шестизначным кодом доступа, введите его в следующее поле.
+      change: Изменить номер
+      phone: Номер телефона
+      code: Код авторизации
+      button: Продолжить вход в аккаунт
+  home:
+    index:
+      welcome: Добро пожаловать в систему уведомлений!
+      you_are: Вы
+  groups:
+    index:
+      title: Список групп
+    edit:
+      new: Новая
+  dialstogroups:
+    index:
+      title: Связь Групп с Обзвонами
+  rolestorules:
+    index:
+
+      title: Связь Правил с Ролями
+  dialstousers:
+    index:
+      title: Связь Пользоветелей с Обзвонами
+  dials:
+    index: 
+      title: Обзвоны
+    basic_report:
+      title: Основной отчет
+    common_report:
+      title: Общий отчет
+            
+      

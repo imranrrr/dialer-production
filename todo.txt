@@ -1,0 +1,1 @@
+Fix common report locales about page and selecting date range by radio buttons

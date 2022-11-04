@@ -1,0 +1,6 @@
+<h1 class="text-center text-primary"><%= t('labels.editing_record') %></h1>
+
+<%= render 'form', record: @record %>
+
+<%= link_to 'Show', @record, class: "btn btn-info", style: "color: white; margin-left: 45%" %> |
+<%= link_to 'Back', records_path, class: "btn btn-primary", style: "color: white" %>

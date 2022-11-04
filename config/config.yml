@@ -1,0 +1,41 @@
+# config/config.yml
+default: &default
+  pin_code_length: 2
+  dials_per_page: 5
+  delay_between_mass_calls: 1
+  call_after_dial_timer: 20
+  ranks:
+    - Ishchi
+    - Askar
+    - Safdor
+    - Kichik serjant
+    - Serjant
+    - Katta serjant
+    - Leytenant
+    - Katta leytenant
+    - Kapitan
+    - Mayor
+    - Podpolkovnik
+    - Polkovnik
+    - Gneral-mayor
+    - General-leytenant
+    - General-polkovnik
+  sip:
+    gateway: asterisk
+    caller_id_number: "712065010"
+    caller_id_name: Dialer
+    timeout: 30
+    prefix: "998"
+    fs_server: localhost
+    fs_port: 8021
+    fs_auth: ClueCon
+    max_calls: 8
+    reserve_calls: 2
+    cdr_timer: 60
+    call_delay: 5
+    cdr_prefix: sofia/external/
+  default_rank: Ishchi
+development:
+  *default
+production:
+  *default

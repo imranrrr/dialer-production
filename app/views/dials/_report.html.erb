@@ -1,0 +1,24 @@
+<%= form_with url: common_report_dials_path, html: {class: "disP"} do |form| %>
+  <div class="field" style="display: block">
+    <%= form.label  t('labels.common_report_type') %>
+    <%= form.label :date_type, "Created", :value => "true"  %>
+    <%= form.radio_button :date_type, true, style: "width: 20px!important"%>
+    <%= form.label :date_type, "Updated", :value => "false" %>
+    <%= form.radio_button :date_type, false, :checked => true, style: "width: 20px !important" %>
+  </div>
+  
+  <div class="field" style="display: block;">
+    <%= form.label t('labels.common_report_date'), style: "display: block" %>
+    <%= form.datetime_field :common_report_date_start %>
+    <div style="display: initial; margin: 0 5px 0 5px">
+    <%= t("labels.report_date_to") %>
+    </div>
+    <%= form.datetime_field :common_report_date_end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit  t('labels.show_report'), class: "btn btn-primary", style: "margin-bottom: 10px" %>
+  </div>
+<% end %>
+
+<!--<%=button_to t('labels.report'), { action: "common_report"}, class: "my_class_1", id: "my_id_1", data: { } %> -->

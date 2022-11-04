@@ -1,0 +1,10 @@
+<h1 class="text-center text-primary"><%=@model_name_single %></h1>
+<h2 class="text-center text-danger"><%= t 'labels.edit'%></h2>
+<h2 class="text-center text-danger"><%= t '.hint'%></h2>
+
+<%= render 'form', user: @user %>
+
+<div style="margin-left: 45%">
+<button class="btn"><%= link_to  t('labels.show'), @user, class: "user_link text-ecnter" %></button> |
+<button class="btn btn-info"><%= link_to  t('labels.back'), users_path, class: "user_link text-center", style: "color: white" %></button>
+</div>

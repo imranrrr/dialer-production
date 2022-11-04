@@ -1,0 +1,2 @@
+class Cdr < ApplicationRecord
+end

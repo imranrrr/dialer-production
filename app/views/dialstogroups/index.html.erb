@@ -1,0 +1,39 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<h1><%= @model_name %></h1>
+<h2><%= t '.title'%> </h2>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <% prefix = "activerecord.attributes.dialgroup." %>
+      <th scope="col"><%= t(prefix + "group") %></th>
+      <th scope="col"><%= t(prefix + "group_name") %></th>
+      <th scope="col"><%= t(prefix + "dial_description") %></th>
+      <th scope="col"><%= t(prefix + "dial") %></th>
+      <th scope="col"><%= t(prefix + "dial_url") %></th>
+      <th scope="col"><%= t(prefix + "dialed") %></th>
+      <th scope="col" colspan="3"><%= t 'labels.action' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dialstogroups.each do |dialstogroup| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td><%= dialstogroup.group_id %></td>
+        <td><%= dialstogroup.group.group %></td>
+        <td><%= dialstogroup.dial.description %></td>
+        <td><%= dialstogroup.dial_id %></td>
+        <td><%= dialstogroup.dial.sound_url %></td>
+        <td><font color=<%=  dialstogroup.dialed ? 'green' : 'red' %>><%= t(dialstogroup.dialed.to_s) %></font></td>
+        <td><button class="btn btn-primary"><%= link_to t('labels.show'), dialstogroup, style: 'color: white'  %></button></td>
+        <td><button class="btn"><%= link_to t('labels.edit'), edit_dialstogroup_path(dialstogroup) if dialstogroup.dialed == false %></button></td>
+        <td><button class="btn btn-danger"><%= link_to t('labels.destroy'), dialstogroup, style: 'color: white', method: :delete, data: { confirm: t('are_you_sure') } if dialstogroup.dialed == false  %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('labels.new'), new_dialstogroup_path %>

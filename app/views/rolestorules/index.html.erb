@@ -1,0 +1,31 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<h1><%= @model_name %></h1>
+<h2><%= t '.title'%> </h2>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+       <% prefix = "activerecord.attributes.rolerule." %>
+      <th scope="col"><%= t(prefix + "role") %></th>
+      <th scope="col"><%= t(prefix + "rule") %></th>
+      <th scope="col" colspan="3"><%=t('.action')%></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rolestorules.each do |rolestorule| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td><%= rolestorule.role.role_description %></td>
+        <td><%= rolestorule.rule.rule_description %></td>
+        <td><button class="btn btn-primary"><%= link_to t('.show'), rolestorule, style: 'color: white' %></button></td>
+        <td><button class="btn"><%= link_to t('.edit'), edit_rolestorule_path(rolestorule) %></button></td>
+        <td><button class="btn btn-danger"><%= link_to t('.destroy'), rolestorule, style: 'color: white', method: :delete, data: { confirm: t('are_you_sure') } %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('labels.new'), new_rolestorule_path %>

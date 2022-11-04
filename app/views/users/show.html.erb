@@ -1,0 +1,65 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+
+<h1 class="text-center text-primary"><%=@model_name_single %></h1>
+<table class="table table-hover table-bordered" style= "width: 40%; margin-left: 530px">
+  <thead>
+    <tr>
+      <th>First</th>
+      <th>Last</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+<% prefix = "activerecord.attributes.user." %>
+  <td><strong><%= t(prefix +'fio') %></strong></td>
+  <td><%= @user.fio %></td>
+</tr>
+
+<tr>
+  <td><strong><%= t(prefix + 'rank') %></strong></td>
+  <td><%= @user.rank %></td>
+</tr>
+
+<tr>
+  <td><strong><%= t(prefix + 'role') %></strong></td>
+  <td><%= @user.role.try(:role) %></td>
+</tr>
+
+<tr>
+  <td><strong><%= t(prefix + 'group') %></strong></td>
+  <td><%= @user.group.try(:group) %></td>
+</tr>
+
+<tr>
+  <td><strong><%= t(prefix + 'phone') %>:</strong></td>
+  <td><%= @user.phone %></td>
+</tr>
+
+<tr>
+  <td><strong><%= t(prefix + 'phone1') %></strong></td>
+  <td><%= @user.phone1 %></td>
+</tr>
+
+<tr>
+  <td><strong><%= t(prefix +'phone2') %></strong></td>
+  <td><%= @user.phone2 %></td>
+</tr>
+
+<tr>
+  <td><strong><%= t(prefix + 'pincode') %></strong></td>
+  <td><%= @user.pincode %></td>
+</tr>
+
+<tr>
+  <td><strong><%= t(prefix + 'active') %></strong></td>
+  <td><%= t(@user.active) %></td>
+</tr>
+  <tbody>
+</table>
+
+<div style="margin-left: 32%">
+<button class="btn"><%= link_to  t('labels.edit'), edit_user_path(@user), class: "user_link" %></button> |
+
+<button class="btn btn-info"> <%= link_to  t('labels.back'), users_path, class: 'user_link', style: "color: white" %></button>
+</div>

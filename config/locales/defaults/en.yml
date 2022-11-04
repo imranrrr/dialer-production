@@ -1,0 +1,153 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  true: "Yes"
+  false: "No"
+  are_you_sure: Are you sure?
+  helpers:
+    submit:
+      create: Create a %{model}
+      update: Update a %{model}
+  halt:
+    errors:
+      messages:
+        unauthorized: Forbidden
+        not_acceptable: Not acceptable
+      descriptions:
+        unauthorized: No access
+        not_acceptable: Not acceptable parameter
+  messages:
+    hello: Hello world
+    resend_code: Re-send code
+    record_created: Record was successfully updated.
+    user_updated: User was successfully updated.
+    user_created: User was successfully created.
+    user_deleted: User was successfully deleted.
+    group_updated: Group was successfully updated.
+    group_created: Group was successfully created.
+    group_deleted: Group was successfully deleted.
+    dial_created: Dial was successfully created.
+    dial_updated: Dial was successfully updated.
+    dial_deleted: Dial was successfully deleted.
+    dial_wait_for_record_call: Wait for phone call for record sound
+    dial_cant_make_sound: Can't make sound 
+    dial_run: Dials was run.
+    dials_to_group_updated: Dialstogroups was successfully updated.
+    role_created: Role was successfully created.
+    role_updated: Role was successfully updated.
+    roles_to_rules_updated: Roles to rules was successfully updated.
+    role_deleted: Role was successfully deleted.
+    role_cant_be_deleted: Role can't be deleted.
+    rule_created: Rule was successfully created.
+    rule_updated: Rule was successfully updated.
+    rule_deleted: Rule was successfully deleted.
+    group_not_deleted: Group was not deleted, users count > 0
+    no_admin_access: You must be logged as admin to access this section
+    you_signed_out: You are signed out
+    you_signed_in: You are now signed in
+    invalid_code: That code’s not right
+    phone_not_found: We could not find an account using that phone. Contact support if this issue persists.
+    no_users_for_show: No users for show
+    no_groups_for_show: No Groups for show
+    dont_select_group_and_user: Only groups and users on same page can be added to dial. Don't select a group and users within a group at the same time
+  global:
+    errors:
+      phone_format: Wrong phone format, should be 998XXXXXXXXX
+      shold_be_filled: Shold be filled
+      phone_taken: Phone has already been taken
+      phone_presence: Phone should be filled
+      role_list: Role is not included in the list
+      group_list: Group is not included in the list
+      rank_list: Group is not included in the list
+      pin_length: Pin code shold be 6 digits
+      digit_only: No characters in pin code allowed
+      group_taken: Group name has already been taken
+      role_taken: Role name has already been taken
+      not_a_number: Shoud be digits
+      dial_sound_url_presence: Sound url should be filled
+      dial_description_presence: Dial description should be filled
+  labels:
+    show: Show
+    edit: Edit
+    destroy: Delete
+    logout: Log Out
+    home: Home Page
+    new: New user
+    back: Back
+    users: Users
+    login: Log In
+    true: True
+    false: False
+    groups: Groups
+    action: Action
+    record: Record sound
+    dial: Dial
+    group_and_user: Group | User
+    dials: Dials
+    roles: Roles
+    rules: Rules
+    cdrs : Call Logs
+    logs: User Logs
+    report: Report
+    basic_report: Basic report
+    unpined_report: Pinless report
+    common_report_type: "Select date of:"
+    common_report_date: Common report date
+    show_report: Show common report
+    no_users: No Users for Dial
+    additional: Settings
+    first: Reference names
+    last: Information
+    language: Language
+    new_role: New role
+    role: Role
+    role_description: Role description
+    rules: Rules
+    new_group: New group
+    rule: Rule
+    rule_description: Rule description
+    obzvon: Call
+    new_call: New call
+    full_group_list: Full Group list
+    unknown: Unknown
+    log: Log
+    play_and_get_digits: Play and get digits
+    search: Search group
+    search_small: Search
+    show_update: Update
+    report_date_to: to
+    search_users: Search users
+    new_voice: New record
+    voice_messages: Voice messages
+    record_description: Description
+    record_recorded: Recorded
+    editing_record: Editing Record

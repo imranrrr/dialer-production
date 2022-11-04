@@ -1,0 +1,90 @@
+<h1 class="text-center text-primary"><%= @model_name_single %></h1>
+
+<h2 class="text-center text-danger">  <%=@dial.id %> | <%=@dial.description %> | <%= format_time @dial.updated_at %>  </h2>
+<h2 class="text-center text-danger"><%= t '.title'%> </h2>
+
+<!-- <%= render 'search', dial: @dial %> -->
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <% prefix = "activerecord.attributes.user." %>
+      <th scope="col"><%= t(prefix + "fio") %></th>
+      <th scope="col"><%= t(prefix + "rank") %></th>
+      <th scope="col"><%= t(prefix + "group") %></th>
+      <th scope="col"><%= t(prefix + "phone") %></th>
+      <th scope="col"><%= t(prefix + "pin") %></th>
+      <th scope="col"><%= t(prefix + "phone1") %></th>
+      <th scope="col"><%= t(prefix + "pin") %></th>
+      <th scope="col"><%= t(prefix + "phone2") %></th>
+      <th scope="col"><%= t(prefix +"pin") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dial.groups.each do |d| %>          
+      <% d.users.each do |u| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td><%= u.fio %></td>
+        <td><%= u.rank %></td>      
+        <td><%= u.group.group %></td>
+          <% [u.phone, u.phone1, u.phone2].each do |phone|%>
+            <td><%= phone %></td>
+            <td>
+            <% cdr = find_cdr_by_phone_and_dial_id(phone, @dial.id, '') %>
+            <% if cdr %>
+              <% cdr.each do |c|%>
+                <% result = c.userfield == u.pincode %>
+                <%= t "activerecord.attributes.user.pincode" %>
+                <font color=<%= result ? 'green' : 'red' %>><%= t(result.to_s) %></font>
+                  <%= format_time c.start %> 
+                  <%= t "labels.#{c.lastapp}" %>
+                    <br>
+                <% end %>
+                    <% else %>
+                       <font color='blue'><%= t('labels.not_found') %></font>
+                    <% end %>  
+                    <br>              
+                  <%end %>  
+              <% end %>
+    <% end %>    
+        <% @dial.users.each do |u| %>
+        <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+          <td><%= u.fio %></td>     
+          <td><%= u.rank %></td>      
+          <td><%= u.group.group %></td>
+          <% [u.phone, u.phone1, u.phone2].each do |phone|%>
+            <td><%= phone %></td>
+            <td>
+            <% cdr = find_cdr_by_phone_and_dial_id(phone, @dial.id, '') %>
+            <% if cdr %>
+              <% cdr.each do |c|%>
+                <% result = c.userfield == u.pincode %>
+                  <%= t "activerecord.attributes.user.pincode" %>
+                  <font color=<%= result ? 'green' : 'red' %>><%= t(result.to_s) %></font>
+                  <%= format_time c.start %>
+                  <%= t "labels.#{c.lastapp}" %> 
+                    <br>
+                <% end %>
+              <% else %>
+                  <font color='blue'><%= t('labels.not_found') %></font>
+              <% end %>
+                <br>
+            <%end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+<br>
+
+
+<button onclick="print()" class="btn btn-primary"><%= link_to t('labels.PDF'), dials_path, class: "user_link", style: "font-size: 18px; color: white" %>PDF</button>
+<%= link_to t('labels.back'), dials_path, class: "user_link btn btn-info", style: "color: white; font-size: 18px" %>
+<br>
+<script type="text/javascript">
+// let print = setTimeout(function(){ window.print(); }, 1000);
+const printPage = () => {
+  print();
+}
+</script>

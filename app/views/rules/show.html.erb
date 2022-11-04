@@ -1,0 +1,16 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<p class="text-center", style="font-size: 20px">
+  <strong class="text-primary">Rule:</strong>
+  <%= @rule.rule %>
+</p>
+
+<p class="text-center", style="font-size: 20px">
+  <strong class="text-danger">Rule description:</strong>
+  <%= @rule.rule_description %>
+</p>
+
+<div style="margin-left: 46%; margin-top: 20px">
+<button class="btn"><%= link_to 'Edit', edit_rule_path(@rule), class: "user_link", style: "font-size: 18px" %></button> |
+<button class="btn btn-info"><%= link_to 'Back', rules_path, class: "user_link", style: "font-size: 18px" %></button>
+</div>

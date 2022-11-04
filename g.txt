@@ -1,0 +1,103 @@
+# clear database
+rake db:migrate VERSION=0 --trace
+# create database 
+rake db:migrate --trace
+# fill database 
+rake db:seed --trace
+
+# full reset db
+rake db:drop db:create db:migrate rake db:seed
+
+# dump/restore db
+rake db:data:dump   ->   Dump contents of Rails database to db/data.yml
+rake db:data:load   ->   Load contents of db/data.yml into the database
+
+#Create all the missing scaffold files
+rails generate scaffold_controller Cdr
+or 
+rails generate scaffold cdr --skip
+
+# user helper in console
+UsersController.helpers.groups(User.first)
+
+
+# Check locale messages
+u = User.first
+u.update(pincode: 'sss444')
+u.errors.messages
+
+# Show table cloumns name and type
+Rule.columns.collect { |c| "#{c.name} (#{c.type})" }
+
+#Set locale
+I18n.locale = 'ru'
+
+#Get user role/rules
+User.first.role.rules
+
+# create scaffolds
+rails g scaffold group group:string group_description:text
+rails g scaffold role role:string role_description:text
+rails g scaffold users name:string phone:string group:references role:references
+rails g model rule rule:string rule_description:text role: belongs_to
+rails g scaffold dial sound_url:string description:string
+rails g scaffold log \
+status:string \
+url:string \
+path:string \
+user_inspect:text \
+user_id:bigint \
+group_id:bigint \
+role_id:bigint \
+rank:string \
+time_spent:datetime \
+user_agent:string \
+ip:string \
+request_method:string \
+http_host:string \
+exception_class:string \
+exception_message:text
+
+# update slave records when master changed
+*_create_users.rb
+  t.references :group, null: false, :foreign_key => { :on_update => :cascade }
+  t.references :role, null: false, :foreign_key => { :on_update => :cascade }
+rake db:migrate
+
+# Add tree scructure
+rails g migration add_ancestry_to_groups ancestry:string:index
+rake db:migrate
+
+#Gem file
+# Db tree
+gem 'ancestry'
+
+# app/models/groups.rb
+
+class Groups < ActiveRecord::Base
+   has_ancestry
+end
+
+#/app/views/groups/index.html.erb
+# and so on
+
+<% Person.roots.each do |root| %>
+  < render the Person row >
+  <% root.children.each do |child| %>
+    < render the Child row >
+  <% end %>
+<% end %>
+
+# trere functions
+корни Корневые узлы
+ancestors_of (node) Предки узла, узел может быть либо записью, либо идентификатором
+children_of (node) Дочерний узел node, node может быть записью или идентификатором
+Descendants_of (node) Потомки node, node может быть либо записью, либо идентификатором
+indirects_of (node) Косвенные дочерние элементы узла, узел может быть либо записью, либо идентификатором
+subtree_of (node) Поддерево узла, узел может быть записью или идентификатором
+siblings_of (node) Братья и сестры узла, узел может быть либо записью, либо идентификатором
+
+Dial.all.each {|d| d.users.destroy_all } Dial.all.each {|d| d.groups.destroy_all } Dial.destroy_all
+
+#Compile after changes
+rake assets:precompile

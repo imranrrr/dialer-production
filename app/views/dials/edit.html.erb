@@ -1,0 +1,9 @@
+<h1 class="text-center text-primary"><%= @model_name_single %></h1>
+<h2 class="text-center text-danger"><%= t 'labels.edit'%></h2>
+
+<%= render 'form', dial: @dial %>
+
+<div style="margin-left: 46%;">
+<button class="btn"><%= link_to 'Show', @dial, class: "user_link" %></button> |
+<button class="btn btn-info"><%= link_to 'Back', dials_path, class: "user_link", style: "color: white" %></button>
+</div>

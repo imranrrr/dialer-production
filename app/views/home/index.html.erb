@@ -1,0 +1,64 @@
+<% if @current_user %>
+  <h1 class="text-center" style="margin-top: 30px; font-size: 30px"><%= t 'home.index.welcome' %></h1>
+  <h2 class="text-center"><%= t'home.index.you_are' %></h2>
+  <table class="table table-bordered" style="margin-left: 500px; width: 40%">
+   <thead>
+      <tr>
+        <% prefix = "activerecord.attributes.user." %>
+        <th scope="col"><%= t('labels.first') %></th>
+        <th scope="col"><%= t('labels.last') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong><%= t(prefix + 'fio' )%></strong></td>
+        <td><%=@current_user.fio%></td>
+      </tr>
+      <tr>
+        <td><strong><%= t(prefix + 'rank' )%></strong></td>
+        <td><%= @current_user.rank%></td>
+      </tr>
+      <tr>
+        <td><strong><%= t(prefix + 'role' )%></strong></td>
+        <td><%= @current_user.role.try(:role) %></td>
+      </tr>
+      <tr>
+        <td><strong><%= t(prefix + 'group' )%></strong></td>
+        <td><%= @current_user.group.try(:group) %></td>
+      </tr>
+      <tr>
+        <td><strong><%= t(prefix + 'phone' )%></strong></td>
+        <td><%= @current_user.phone%></td>
+      </tr>
+      <tr>
+        <td><strong><%= t(prefix + 'phone1' )%></strong></td>
+        <td><%= @current_user.phone1%></td>
+      </tr>
+      <tr>
+        <td><strong><%= t(prefix + 'phone2' )%></strong></td>
+        <td><%= @current_user.phone2%></td>
+      </tr>
+      <tr>
+        <td><strong><%= t(prefix + 'pincode' )%></strong></td>
+        <td><%= @current_user.pincode%></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+<% else %>
+<div class="breg">
+  <div class="box">
+  <div class="reg"></div>
+    <h1 style="margin-top: 30px; font-size: 25px; color: white; background-color: #771711; width: 100%; padding: 10px; border-radius: 10px" class="text-center" ><%= t 'home.index.welcome' %></h1>
+    <%= link_to t('labels.login'), auth_path, style: "margin-left: 145px; font-size: 20px; color: white; padding: 10px 40px", class: "btn btn-primary" %>
+    <div style="margin-top: 10px; margin-left: 180px">
+      <button class="btn"><%= link_to "En", {controller: controller_name, action: action_name, locale: "en"}, {class: "user_link", style: "color: black"} %></button>
+      <button class="btn"><%= link_to "Ru", {controller: controller_name, action: action_name, locale: "ru"}, {class: "user_link", style: "color: black"} %></button>
+      <button class="btn"><%= link_to "Uz", {controller: controller_name, action: action_name, locale: "uz"}, {class: "user_link", style: "color: black"} %></button>
+    </div>
+  </div>
+</div>
+<%= link_to "Download", "./gui.tar.xz"%>
+
+
+<% end %>
